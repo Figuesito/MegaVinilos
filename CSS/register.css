@@ -20,7 +20,7 @@ body {
 
 form {
     display: flex;
-    gap: 40px;
+    gap: 20px; /* Reducir el espacio entre secciones */
     flex-wrap: wrap;
     justify-content: space-between;
 }
@@ -89,5 +89,9 @@ button {
 @media (max-width: 600px) {
     form {
         flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+    }
+
+    .form-section {
+        width: 100%; /* Asegurarse de que las secciones ocupen el 100% del ancho */
     }
 }
