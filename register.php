@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,7 +10,18 @@
 <body>
   <div class="form-container">
     <h1>Registrarse</h1>
-    <form action="php/register.php" method="POST" onsubmit="return validarRegistro()">
+
+    <!-- Mensaje de error o éxito -->
+    <?php if (isset($_SESSION['mensaje'])): ?>
+      <p style="color: <?php echo $_SESSION['mensaje_tipo'] === 'error' ? 'red' : 'green'; ?>; text-align:center;">
+        <?php 
+          echo $_SESSION['mensaje']; 
+          unset($_SESSION['mensaje'], $_SESSION['mensaje_tipo']);
+        ?>
+      </p>
+    <?php endif; ?>
+
+    <form action="php/registeraded.php" method="POST" onsubmit="return validarRegistro()">
       <div class="form-section">
         <h3>Datos de acceso</h3>
 
@@ -44,14 +56,13 @@
 
       <div style="width: 100%;">
         <button type="submit">Registrarse</button>
-        <a href="index.html" class="volver-btn">Volver al inicio</a>
+        <a href="index.php" class="volver-btn">Volver al inicio</a>
       </div>
     </form>
 
-    <!-- Botón para ir a login -->
     <p style="text-align:center; margin-top: 20px; color: #E3D4FF;">
       ¿Ya tienes una cuenta?
-      <a href="login.html" style="color: #BCA6FF; font-weight: bold; text-decoration: none;">
+      <a href="login.php" style="color: #BCA6FF; font-weight: bold; text-decoration: none;">
         Inicia sesión
       </a>
     </p>
@@ -80,7 +91,7 @@
         valido = false;
       }
       if (contrasena.length < 6) {
-        document.getElementById("contrasenaError").textContent = "Contraseña muy corta (min 6 carcteres).";
+        document.getElementById("contrasenaError").textContent = "Contraseña muy corta (min 6 caracteres).";
         valido = false;
       }
       if (nombre === "") {
