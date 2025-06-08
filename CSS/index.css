@@ -12,7 +12,7 @@ body {
  
 header {
     display: grid; /* utiliza sistema de cuadrícula para organizar elementos */
-    grid-template-columns: 20% 24% 56%; /* 20% logo, 20% buscador y 60% menu */
+    grid-template-columns: 24% 22% 53%; /* 20% logo, 20% buscador y 60% menu */
     height: 80px;
     background-color: #252535;
     margin: auto;
@@ -24,7 +24,7 @@ header {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: 30% 80%; /* 30% logo y 70% nombre */
+    grid-template-columns: 30% 70%; /* 30% logo y 70% nombre */
     grid-template-rows: 60px; 
     place-items: center; /* centra el contenido en ambas direcciones */
 }
